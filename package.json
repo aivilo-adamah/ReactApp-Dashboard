@@ -1,21 +1,21 @@
 {
   "name": "admin1-app",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "npm run build:css && npm run build:js",
+    "build:css": "npm run less:compile",
+    "build:js": "npm run babel:compile",
+    "less:compile": "lessc ./node_modules/admin-lte/src/less/AdminLTE.less ./src/assets/css/adminlte.css",
+    "babel:compile": "babel ./node_modules/admin-lte/src/js/ --out-dir ./src/assets/js/"
+  },
+  "dependencies": {
+    "admin-lte": "^3.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
   },
   "eslintConfig": {
     "extends": [
